@@ -1,0 +1,14 @@
+
+
+<p> <?php echo $block->frontMessage() ?> </p>
+
+
+<p> <?php echo $block->getMain()->getData() ?> </p>
+
+<p> <?php echo $block->getMain()->getInjectable()->getData() ?> </p>
+
+<p> <?php echo $block->getMain()->getNonInjectable()->getData() ?> </p>
+
+<p> <?php echo $block->getMain()->getAbstractTest()->getMessage() ?> </p>
+
+<p> <?php echo $block->getMain()->getPluginTestClass()->getPluginMessage("Hey there","How are you!!") ?> </p>

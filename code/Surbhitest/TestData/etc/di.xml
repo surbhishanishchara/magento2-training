@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+   <preference for="Surbhitest\TestData\Model\Injectbaleinterface" type="Surbhitest\TestData\Model\Injectable"/>
+   <preference for="Surbhitest\TestData\Model\Noninjectableinterface" type="Surbhitest\TestData\Model\Noninjectable"/>
+    <type name="Surbhitest\TestData\Model\Main">
+        <arguments>
+            <argument name="AbstractTest" xsi:type="object">Surbhitest\TestData\Model\Test</argument>
+            <argument name="ProxyTest" xsi:type="object">Surbhitest\TestData\Model\ProxyTest\Proxy</argument>
+            <argument name="data" xsi:type="array">
+                <item name="id" xsi:type="string">Main Class Data</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Surbhitest\TestData\Model\PluginTestClass">
+        <plugin name = "plugin_test_class_plugin" type = "Surbhitest\TestData\Plugin\PluginTestClassPlugin"></plugin>
+    </type>
+      <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="testdata_examplecommand" xsi:type="object">Surbhitest\TestData\Console\Command\ExampleCommand</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Surbhitest\TestData\App\Router\NoRouteHandlerList">
+        <arguments>
+            <argument name="handlerClassesList" xsi:type="array">
+                <item name="testdata" xsi:type="array">
+                    <item name="class" xsi:type="string">Surbhitest\TestData\App\Router\NoRouteHandler</item>
+                    <item name="sortOrder" xsi:type="string">80</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

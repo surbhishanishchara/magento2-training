@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+      <add id="Surbhitest_TestData::testmenu" title="Test Menu" translate="title" module="Surbhitest_TestData" parent="Magento_Backend::content" sortOrder="50" dependsOnModule="Surbhitest_TestData" resource="Surbhitest_TestData::testmenu"/>
+      <add id="Surbhitest_TestData::testmenu_firstmenu" title="First Menu" translate="title" module="Surbhitest_TestData" parent="Surbhitest_TestData::testmenu" sortOrder="10" dependsOnModule="Surbhitest_TestData" action="testdata/firstmenu" resource="Surbhitest_TestData::testmenu"/>
+    </menu>
+</config>
