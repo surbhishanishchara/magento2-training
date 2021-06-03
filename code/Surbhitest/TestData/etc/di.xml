@@ -20,7 +20,7 @@
     <type name="Surbhitest\TestData\Model\PluginTestClass">
         <plugin name = "plugin_test_class_plugin" type = "Surbhitest\TestData\Plugin\PluginTestClassPlugin"></plugin>
     </type>
-      <type name="Magento\Framework\Console\CommandListInterface">
+    <type name="Magento\Framework\Console\CommandListInterface">
         <arguments>
             <argument name="commands" xsi:type="array">
                 <item name="testdata_examplecommand" xsi:type="object">Surbhitest\TestData\Console\Command\ExampleCommand</item>

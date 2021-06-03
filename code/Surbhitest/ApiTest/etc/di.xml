@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+  <preference for="Surbhitest\ApiTest\Api\TestApiManagementInterface" type="Surbhitest\ApiTest\Model\Api\TestApiManagement" />
+    <preference for="Surbhitest\ApiTest\Api\Data\TestApiInterface" type="Surbhitest\ApiTest\Model\TestApi" />
+</config>
