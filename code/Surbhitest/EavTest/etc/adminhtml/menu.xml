@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+     <add id="Surbhitest_EavTest::menu" title="Custom Menu" module="Surbhitest_EavTest" sortOrder="10" resource="Surbhitest_EavTest::menu"/>
+     <add id="Surbhitest_EavTest::create" title="Create" module="Surbhitest_EavTest" sortOrder="10" parent="Surbhitest_EavTest::menu" action="custommenu/create/index" resource="Surbhitest_EavTest::create"/>
+     <add id="Surbhitest_EavTest::delete" title="Delete" module="Surbhitest_EavTest" sortOrder="20" parent="Surbhitest_EavTest::menu" action="custommenu/delete/index" resource="Surbhitest_EavTest::delete"/>
+     <add id="Surbhitest_EavTest::view" title="View" module="Surbhitest_EavTest" sortOrder="30" parent="Surbhitest_EavTest::menu" action="custommenu/view/index" resource="Surbhitest_EavTest::view"/>
+    </menu>
+</config>

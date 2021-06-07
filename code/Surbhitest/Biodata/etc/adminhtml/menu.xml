@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Surbhitest_Biodata::biodata_details" title="Biodata" translate="title" module="Surbhitest_Biodata"
+             sortOrder="10" resource="Surbhitest_Biodata::biodata_details" />
+        <add id="Surbhitest_Biodata::add_row" title="Manage Biodata" translate="title" module="Surbhitest_Biodata"
+             sortOrder="20" parent="Surbhitest_Biodata::biodata_details" action="biodata/biodata"
+             resource="Surbhitest_Biodata::add_row" />
+    </menu>
+</config>

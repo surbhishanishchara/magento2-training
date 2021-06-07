@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+   <acl>
+     <resources>
+        <resource id="Magento_Backend::admin">
+           <resource id="Surbhitest_Biodata::menu" title="Manage biodata" sortOrder="10" >
+              <resource id="Surbhitest_Biodata::add_row" title="Add Biodata" sortOrder="50" />
+        </resource>
+        </resource>
+     </resources>
+   </acl>
+</config>
