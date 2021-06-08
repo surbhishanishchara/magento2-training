@@ -16,3 +16,80 @@
 <p> <?php echo $block->getShowMsg(); ?> </p>
 
 <p> <?php print_r($block->getShowGrade()); ?> </p>
+
+<h1> toggle widget </h1>
+
+<div id="accordion" data-mage-init='{
+        "accordion":{
+            "active": [0,1],
+            "collapsible": true,
+            "openedState": "active",
+            "multipleCollapsible": true
+        }}'>
+    <div data-role="collapsible">
+        <div data-role="trigger">
+            <h4>Title 1</h4>
+        </div>
+    </div>
+    <div data-role="content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
+
+    <div data-role="collapsible">
+        <div data-role="trigger">
+            <h4>Title 2</h4>
+        </div>
+    </div>
+    <div data-role="content"> It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+
+    <div data-role="collapsible">
+        <div data-role="trigger">
+            <h4>Title 3</h4>
+        </div>
+    </div>
+    <div data-role="content">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</div>
+</div>
+
+<h1>Alert Widget</h1>
+
+<div class="alert-modal-content">
+    <p>Please accept this condition</p>
+</div>
+
+<script>
+require([
+    'jquery',
+    'Magento_Ui/js/modal/alert'
+], function ($) {
+    'use strict';
+
+    $('.alert-modal-content').alert({
+        title: 'Are you sure?',
+        modalClass: 'alert',
+        actions: {
+            always: function() {
+                // do something when the modal is closed
+            }
+        },
+        buttons: [{
+            text: $.mage.__('Accept'),
+            class: 'action primary accept',
+
+            /**
+             * Click handler.
+             */
+            click: function () {
+                this.closeModal(true);
+            }
+        }, {
+            text: $.mage.__('New Action'),
+            class: 'action',
+
+            /**
+             * Click handler.
+             */
+            click: function () {
+                // New action
+            }
+        }]
+    });
+});
+</script>
