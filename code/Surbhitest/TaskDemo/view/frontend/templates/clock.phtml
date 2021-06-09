@@ -1,0 +1,17 @@
+<div data-bind="scope: 'live-clock'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "live-clock": {
+                        "component": "Surbhitest_TaskDemo/js/viewModel",
+                        "template" : "Surbhitest_TaskDemo/template"
+                    }
+                }
+            }
+        }
+    }
+</script>
