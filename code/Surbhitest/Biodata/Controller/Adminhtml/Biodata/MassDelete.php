@@ -54,7 +54,7 @@ class MassDelete extends \Magento\Backend\App\Action
             $biodata_image_path = $this->urlBuilder->getBaseUrl(['_type' => UrlInterface::URL_TYPE_MEDIA]).'biodata_image/';
           
             if(file_exists(UrlInterface::URL_TYPE_MEDIA.'/biodata_image/'.$biodata_image_name)){
-                unlink(UrlInterface::URL_TYPE_MEDIA.'/biodata_image/'.$biodata_image_name);
+               unlink(UrlInterface::URL_TYPE_MEDIA.'/biodata_image/'.$biodata_image_name);
             }
             $record->delete();
             $recordDeleted++;

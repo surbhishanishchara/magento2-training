@@ -37,6 +37,7 @@ class Save extends \Magento\Backend\App\Action
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
+
         if (!$data) {
             $this->_redirect('biodata/biodata/addrow');
             return;
@@ -45,7 +46,7 @@ class Save extends \Magento\Backend\App\Action
             $rowData = $this->biodataFactory->create();
             
             /* for upload image */
-            $uploader = $this->_fileUploaderFactory->create(['fileId' => 'candidate_image']);
+            /* $uploader = $this->_fileUploaderFactory->create(['fileId' => 'candidate_image']);
             $uploader->setAllowedExtensions(['jpg', 'jpeg', 'gif', 'png']);
             $uploader->setAllowRenameFiles(false);
             $uploader->setFilesDispersion(false);
@@ -55,10 +56,12 @@ class Save extends \Magento\Backend\App\Action
 
             if(isset($_FILES['candidate_image']['name']) && !empty($_FILES['candidate_image']['name'])){
                 $data['candidate_image'] = $_FILES['candidate_image']['name'];
-            }
+            } */
+            
             if(is_array($data['hobby']) && !empty($data['hobby'])){
                 $data['hobby'] = implode(',',$data['hobby']);
             }
+            if(!empty($data['candidate_image']))$data['candidate_image'] = $data['candidate_image'][0]['name'] ;
             $rowData->setData($data);
             if (isset($data['id'])) {
                 $rowData->setBiodataId($data['id']);

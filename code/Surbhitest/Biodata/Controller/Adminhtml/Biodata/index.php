@@ -33,7 +33,6 @@ class Index extends \Magento\Backend\App\Action
         $resultPage = $this->_resultPageFactory->create();
         $resultPage->setActiveMenu('Surbhitest_Biodata::biodata_list');
         $resultPage->getConfig()->getTitle()->prepend(__('Biodata List'));
-
         return $resultPage;
     }
 
