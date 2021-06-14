@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="TrainingSurbhi_Car::car_data" title="Car" translate="title" module="TrainingSurbhi_Car"
+             sortOrder="10" resource="TrainingSurbhi_Car::car_data" />
+        <add id="TrainingSurbhi_Car::add_row" title="Manage Car Details" translate="title" module="TrainingSurbhi_Car"
+             sortOrder="20" parent="TrainingSurbhi_Car::car_data" action="car/car"
+             resource="TrainingSurbhi_Car::add_row" />
+    </menu>
+</config>
