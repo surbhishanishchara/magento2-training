@@ -1,0 +1,47 @@
+<?php $collection = $block->getCarCollection(); ?>
+<?php if($collection->count() > 0): ?>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+    <table class="data table" id="car-data-table">
+        <caption class="table-caption">Car Data</caption>
+        <thead>
+            <tr>
+                <th scope="col" class="col image">Image</th>
+                <th scope="col" class="col carname">Car Name</th>
+                <th scope="col" class="col companyname">Company Name</th>
+                <th scope="col" class="col engine">Engine</th>
+                <th scope="col" class="col carcolor">Car Color</th>
+                <th scope="col" class="col actions">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($collection as $key => $data): ?>
+                <tr>
+                    <td data-th="Image" class="col image">
+                        <?php if($data->getImage()): ?>
+                            <img width="70" height="70" src="<?php echo $block->getBaseUrl().'pub/media/car_image/'.$data->getImage(); ?>">
+                        <?php else: ?>
+                            <p>No Image</p>
+                        <?php endif; ?>
+                    </td>
+                    <td data-th="Car Name" class="col carname"><?php echo $data->getCarName(); ?></td>
+                    <td data-th="Company Name" class="col companyname"><?php echo $data->getCompany(); ?></td>
+                    <td data-th="Engine" class="col engine"><?php echo $data->getEngineType(); ?></td>
+                    <td data-th="Car Color" class="col carcolor"><?php echo $data->getColor(); ?></td>
+                    <td data-th="Actions" class="col actions">
+                        <?php $id = ($data->getCarId()) ? $data->getCarId() : $data['car_id']; ?>
+                        <a href="<?php echo $block->getBaseUrl().'car/index/view/id/'.$id; ?>" class="action view">
+                            <span>View</span>
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+<?php else: ?>
+    <h2>We couldn't find any records</h2>
+<?php endif; ?>
