@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+      <add id="TrainingSurbhi_CustomerIP::ipaddress" title="Allowed IP Address For Login" translate="title" module="TrainingSurbhi_CustomerIP" parent="Magento_Customer::customer" sortOrder="50" dependsOnModule="TrainingSurbhi_CustomerIP" resource="TrainingSurbhi_CustomerIP::ipaddress"/>
+      <add id="TrainingSurbhi_CustomerIP::ipaddress_customer" title="Customer IP Address" translate="title" module="TrainingSurbhi_CustomerIP" parent="TrainingSurbhi_CustomerIP::ipaddress" sortOrder="10" dependsOnModule="TrainingSurbhi_CustomerIP" action="customerip/customerip/index/scope/stores" resource="TrainingSurbhi_CustomerIP::ipaddress"/>
+    </menu>
+</config>

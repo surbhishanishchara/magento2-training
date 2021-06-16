@@ -83,7 +83,7 @@ if($block->isCountdownEnabled() && $block->getPriceCountDown())
             }
             else
             {
-                 dytext =   '<li><span id="days">'+days +' </span>Days</li> ';
+                 dytext =   '<li><span id="days">'+days +'</span>Days</li> ';
             }
 
             if(hours==00) {
@@ -98,21 +98,20 @@ if($block->isCountdownEnabled() && $block->getPriceCountDown())
                 mintext='';
             }
             else {
-                mintext = '<li><span id="minutes">'+minutes +' </span> Minutes  </li> ';
+                mintext = '<li><span id="minutes">'+minutes +'</span> Minutes  </li> ';
             }
 
             sectext =  '<li><span id="seconds">'+seconds +'</span> Seconds </li>';
-            document.getElementById('pdp-deal-countdown').innerHTML = '<h1 id="headline">Time Remaining For the Deal is:</h1><div id="countdown"><ul>' + dytext + hrtext +  mintext + sectext+'</ul></div>';
+            document.getElementById('pdp-deal-countdown').innerHTML = '<div id="countdown"><ul>' + dytext + hrtext +  mintext + sectext+'</ul></div>';
             flag_time = false;
         }
     }
     // ]]></script>
-
+<h2>Deal is starting soon!! </h2>
 <div id="pdp-deal-countdown" class="pdp-deal-countdown">
         <script type="text/javascript">// <![CDATA[
         getTimer()
 
         // ]]></script>
     </div>
-<!– Daily Deal Code End–>
 <?php } ?>

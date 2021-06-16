@@ -70,7 +70,7 @@ public function install(ModuleDataSetupInterface $setup, ModuleContextInterface 
                     'source' => '',
                     'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
                     'visible' => true,
-                    'required' => true,
+                    'required' => false,
                     'user_defined' => false,
                     'default' => '',
                     'sort_order' => 9,
