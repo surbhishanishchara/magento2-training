@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+	<group id="product_category_update">
+		<job instance="TrainingSurbhi\ProductCron\Cron\ProductCategoryUpdate" method="execute" name="trainingsurbhi_productcron_cron">
+			<schedule>* * * * *</schedule>
+		</job>
+	</group>
+</config>
