@@ -26,9 +26,17 @@ class ProductCategoryUpdate {
         //->addAttributeToFilter('category_ids','');
         $collection->addAttributeToSort('entity_id', 'DESC');
         $items = $collection->getItems();
+
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $categoryLinkRepository = $objectManager->get('\Magento\Catalog\Api\CategoryLinkManagementInterface');
+
         foreach($items as $item){
-            $prd_data = $item->getName();
-            $this->logger->info($prd_data);
+            $prd_sku_dta = $item->getSKU();
+
+            $categoryIds = array('12');
+            $categoryLinkRepository->assignProductToCategories($prd_sku_dta, $categoryIds);
+
+            //$this->logger->info($prd_data);
         }
        // $this->logger->info("In collection data");
     }

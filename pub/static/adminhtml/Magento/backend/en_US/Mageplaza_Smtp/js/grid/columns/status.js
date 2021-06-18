@@ -1,0 +1,1 @@
+/var/www/html/magento2/vendor/mageplaza/module-smtp/view/adminhtml/web/js/grid/columns/status.js

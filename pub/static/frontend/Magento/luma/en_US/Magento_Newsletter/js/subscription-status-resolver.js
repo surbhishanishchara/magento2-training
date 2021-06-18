@@ -1,0 +1,1 @@
+/var/www/html/magento2/app/code/Magento/Newsletter/view/frontend/web/js/subscription-status-resolver.js

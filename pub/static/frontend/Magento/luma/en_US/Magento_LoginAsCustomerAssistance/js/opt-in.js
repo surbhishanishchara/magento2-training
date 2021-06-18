@@ -1,0 +1,1 @@
+/var/www/html/magento2/app/code/Magento/LoginAsCustomerAssistance/view/frontend/web/js/opt-in.js
