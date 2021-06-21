@@ -1,0 +1,24 @@
+<?php
+$father_name_data= $block->getCustomer()->getCustomAttribute('father_name');
+$father_name = $father_name_data ? $father_name_data->getValue() : null;
+
+$mother_name_data= $block->getCustomer()->getCustomAttribute('mother_name');
+$mother_name = $mother_name_data ? $mother_name_data->getValue() : null;
+?>
+
+<div class="field father name">
+    <label class="label" for="father_name">
+      <span><?= $block->escapeHtml(__("Father's Number")) ?></span>
+    </label>
+    <div class="control">
+       <input type="text" name="father_name" id="father_name" value="<?=$block->escapeHtmlAttr($father_name);?>" title="<?= $block->escapeHtmlAttr(__("Father's Number")) ?>" class="input-text" >
+    </div>
+</div>
+<div class="field mother name">
+    <label class="label" for="mother_name">
+      <span><?= $block->escapeHtml(__("Mother's Number")) ?></span>
+    </label>
+    <div class="control">
+       <input type="text" name="mother_name" id="mother_name" value="<?=$block->escapeHtmlAttr($mother_name);?>" title="<?= $block->escapeHtmlAttr(__("Mother's Number")) ?>" class="input-text" >
+    </div>
+</div>

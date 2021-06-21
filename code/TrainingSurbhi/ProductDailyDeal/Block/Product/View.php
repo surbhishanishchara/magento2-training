@@ -9,10 +9,6 @@ class View extends \Magento\Catalog\Block\Product\View
     {
         return $this->getProduct()->getData('deal_status');
     }
-    public function getTile()
-    {
-       return $this->_scopeConfig->getValue('countdown/general/title');
-    }
 
     public function getCountdownEndDate(){
         return  $this->getProduct()->getData('deal_time');

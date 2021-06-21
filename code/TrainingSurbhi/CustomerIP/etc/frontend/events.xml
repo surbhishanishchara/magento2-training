@@ -3,4 +3,7 @@
     <event name="customer_customer_authenticated">
         <observer name="customeriprestriction" instance="TrainingSurbhi\CustomerIP\Observer\CustomerIPRestriction" />
     </event>
+     <event name="customer_login">
+        <observer name="customer_login_observer" instance="TrainingSurbhi\CustomerIP\Observer\CustomerLogin" />
+    </event>
 </config>
