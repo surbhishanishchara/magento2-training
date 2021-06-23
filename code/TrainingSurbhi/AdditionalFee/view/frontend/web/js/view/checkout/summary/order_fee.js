@@ -19,8 +19,8 @@ define(
             },
             getValue: function() {
                 var price = 0;
-                if (this.totals()) {
-                    price = totals.getSegment('order_fee').value;
+                if (this.totals() && totals.getSegment('extrafee')) {
+                    price = totals.getSegment('extrafee').value;
                 }
                 return this.getFormattedPrice(price);
             },
