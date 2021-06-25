@@ -20,6 +20,7 @@ class Productgrid extends \Magento\Backend\Block\Widget\Grid\Extended
         \Magento\Framework\Registry $coreRegistry,
         \Magento\Framework\Module\Manager $moduleManager,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
+        \Magento\CatalogRule\Model\RuleFactory $catalogRule,
         Visibility $visibility = null,
         array $data = []
     ) {
@@ -28,6 +29,7 @@ class Productgrid extends \Magento\Backend\Block\Widget\Grid\Extended
         $this->coreRegistry = $coreRegistry;
         $this->moduleManager = $moduleManager;
         $this->_storeManager = $storeManager;
+        $this->catalogRule = $catalogRule;
         $this->visibility = $visibility ?: ObjectManager::getInstance()->get(Visibility::class);
         parent::__construct($context, $backendHelper, $data);
     }
@@ -54,7 +56,26 @@ class Productgrid extends \Magento\Backend\Block\Widget\Grid\Extended
     }
     
     protected function _prepareCollection()
-    {
+    {       
+       $websiteId = $this->_storeManager->getStore()->getWebsiteId();//current Website Id
+       $rules_id = $this->getRequest()->getParam('id');
+
+       $resultProductIds = [];
+       $catalogRuleCollection = $this->catalogRule->create()->getCollection();
+      // $catalogRuleCollection->addIsActiveFilter(1);//filter for active rules only
+       $catalogRuleCollection->addFieldToFilter('rule_id', $rules_id);
+       foreach ($catalogRuleCollection as $catalogRule) {
+           $productIdsAccToRule = $catalogRule->getMatchingProductIds();
+           foreach ($productIdsAccToRule as $productId => $ruleProductArray) {
+               if (!empty($ruleProductArray[$websiteId])) {
+                 //  $resultProductIds[$productId] = $catalogRule->getName();//name of rule
+                 $resultProductIds[] = $productId;
+               }
+           }
+       }
+       array_unique($resultProductIds); //to fetch unique product
+
+      // echo "<pre>".print_r($resultProductIds)."</pre>";
         $store = $this->_getStore();
         $collection = $this->productFactory->create()->getCollection()->addAttributeToSelect(
             'sku'
@@ -67,6 +88,7 @@ class Productgrid extends \Magento\Backend\Block\Widget\Grid\Extended
         )->setStore(
             $store
         );
+        $collection->addFieldToFilter('entity_id', ['in' => $resultProductIds]);
         if ($this->moduleManager->isEnabled('Magento_CatalogInventory')) {
             $collection->joinField(
                 'qty',
@@ -138,7 +160,7 @@ class Productgrid extends \Magento\Backend\Block\Widget\Grid\Extended
      */
     protected function _prepareColumns()
     {
-        $this->addColumn(
+       /*  $this->addColumn(
             'in_products',
             [
                 'type' => 'checkbox',
@@ -148,7 +170,7 @@ class Productgrid extends \Magento\Backend\Block\Widget\Grid\Extended
                 'align' => 'center',
                 'index' => 'entity_id',
             ]
-        );
+        ); */
         $this->addColumn(
             'entity_id',
             [
@@ -217,7 +239,7 @@ class Productgrid extends \Magento\Backend\Block\Widget\Grid\Extended
 
     public function getGridUrl()
     {
-        return $this->getUrl('affectedproduct/index/grids', ['_current' => false]);
+        return $this->getUrl('affectedproduct/index/grids/id/'.$this->getRequest()->getParam('id'), ['_current' => false]);
     }
 
     protected function _getSelectedProducts()

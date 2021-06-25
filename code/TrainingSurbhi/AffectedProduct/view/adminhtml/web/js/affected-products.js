@@ -7,17 +7,9 @@ define([
             categoryProducts = $H(selectedProducts),
             gridJsObject = window[config.gridJsObjectName],
             tabIndex = 1000;
-        /**
-         * Show selected product when edit form in associated product grid
-         */
+        
         $('affected_products').value = Object.toJSON(categoryProducts);
-        /**
-         * Register Category Product
-         *
-         * @param {Object} grid
-         * @param {Object} element
-         * @param {Boolean} checked
-         */
+      
         function registerCategoryProduct(grid, element, checked) {
             if (checked) {
                 if (element.positionElement) {
@@ -35,12 +27,7 @@ define([
                 'selected_products[]': categoryProducts.keys()
             };
         }
-        /**
-         * Click on product row
-         *
-         * @param {Object} grid
-         * @param {String} event
-         */
+      
         function categoryProductRowClick(grid, event) {
             var trElement = Event.findElement(event, 'tr'),
                 isInput = Event.element(event).tagName === 'INPUT',
@@ -54,11 +41,7 @@ define([
                 }
             }
         }
-        /**
-         * Change product position
-         *
-         * @param {String} event
-         */
+    
         function positionChange(event) {
             var element = Event.element(event);
             if (element && element.checkboxElement && element.checkboxElement.checked) {
@@ -66,12 +49,7 @@ define([
                 $('affected_products').value = Object.toJSON(categoryProducts);
             }
         }
-        /**
-         * Initialize category product row
-         *
-         * @param {Object} grid
-         * @param {String} row
-         */
+      
         function categoryProductRowInit(grid, row) {
             var checkbox = $(row).getElementsByClassName('checkbox')[0],
                 position = $(row).getElementsByClassName('input-text')[0];
