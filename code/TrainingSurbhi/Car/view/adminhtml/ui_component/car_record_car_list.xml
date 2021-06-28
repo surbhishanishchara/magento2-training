@@ -154,22 +154,44 @@
                </item>
            </argument>
        </column>
-       <column name="company" >
+       <!-- <column name="company" >
            <argument name="data" xsi:type="array">
                <item name="config" xsi:type="array">
                    <item name="filter" xsi:type="string">text</item>
                    <item name="label" xsi:type="string" translate="true">Company name</item>
                </item>
            </argument>
-       </column>
-      <column name="engine_type" >
+       </column> -->
+         <column name="company" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <options class="TrainingSurbhi\Car\Model\Car\Source\CarCompany"/>
+                <filter>select</filter>
+                <editor>
+                    <editorType>select</editorType>
+                </editor>
+                <dataType>select</dataType>
+                <label translate="true">Company name</label>
+            </settings>
+        </column>
+      <!-- <column name="engine_type" >
            <argument name="data" xsi:type="array">
                <item name="config" xsi:type="array">
                    <item name="filter" xsi:type="string">text</item>
                    <item name="label" xsi:type="string" translate="true">Engine Type</item>
                </item>
            </argument>
-       </column>
+       </column> -->
+       <column name="engine_type" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <options class="TrainingSurbhi\Car\Model\Car\Source\CarEngine"/>
+                <filter>select</filter>
+                <editor>
+                    <editorType>select</editorType>
+                </editor>
+                <dataType>select</dataType>
+                <label translate="true">Engine Type</label>
+            </settings>
+        </column>
        <column name="color" >
            <argument name="data" xsi:type="array">
                <item name="config" xsi:type="array">
@@ -178,13 +200,24 @@
                </item>
            </argument>
        </column>
-        <column name="is_active" >
+       <!--  <column name="is_active" >
            <argument name="data" xsi:type="array">
                <item name="config" xsi:type="array">
                    <item name="label" xsi:type="string" translate="true">Status</item>
                </item>
            </argument>
-       </column>
+       </column> -->
+        <column name="is_active" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <options class="TrainingSurbhi\Car\Model\Car\Source\IsActive"/>
+                <filter>select</filter>
+                <editor>
+                    <editorType>select</editorType>
+                </editor>
+                <dataType>select</dataType>
+                <label translate="true">Status</label>
+            </settings>
+        </column>
        <column name="update_time" class="Magento\Ui\Component\Listing\Columns\Date" >
            <argument name="data" xsi:type="array">
                <item name="config" xsi:type="array">

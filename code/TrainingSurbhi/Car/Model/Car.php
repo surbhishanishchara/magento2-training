@@ -23,6 +23,17 @@ class Car extends \Magento\Framework\Model\AbstractModel implements CarInterface
      */
     protected $_eventPrefix = 'car_data';
 
+    const STATUS_ENABLED = 1;
+    const STATUS_DISABLED = 0;
+
+    const CAR_HONDA = 'honda';
+    const CAR_SKODA = 'skoda';
+    const CAR_BMW = 'bmw';
+    const CAR_AUDI = 'audi';
+
+    const ENGINE_PETROL = 'petrol';
+    const ENGINE_DIESEL = 'diesel';
+
     /**
      * Initialize resource model.
      */
@@ -263,5 +274,20 @@ class Car extends \Magento\Framework\Model\AbstractModel implements CarInterface
     public function setCreationTime($creation_time)
     {
         return $this->setData(self::CREATION_TIME, $creation_time);
+    }
+
+    public function getAvailableStatuses()
+    {
+        return [self::STATUS_ENABLED => __('Enabled'), self::STATUS_DISABLED => __('Disabled')];
+    }
+
+    public function getAvailableCarCompany()
+    {
+        return [self::CAR_HONDA => __('Honda'), self::CAR_SKODA => __('Skoda'), self::CAR_BMW => __('BMW'), self::CAR_AUDI => __('Audi')];
+    }
+
+    public function getAvailableCarEngine()
+    {
+        return [self::ENGINE_PETROL => __('Petrol'), self::ENGINE_DIESEL => __('Diesel')];
     }
 }
