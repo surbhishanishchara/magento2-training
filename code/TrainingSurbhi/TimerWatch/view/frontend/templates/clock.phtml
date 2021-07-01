@@ -1,0 +1,17 @@
+<div data-bind="scope: 'live-clock'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "live-clock": {
+                        "component": "TrainingSurbhi_TimerWatch/js/viewModel",
+                        "template" : "TrainingSurbhi_TimerWatch/template"
+                    }
+                }
+            }
+        }
+    }
+</script>
