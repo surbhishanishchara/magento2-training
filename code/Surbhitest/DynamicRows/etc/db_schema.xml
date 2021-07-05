@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="dynamic_rows" resource="default" engine="innodb" comment="Dynamic Rows Details">
+        <column xsi:type="smallint" name="dynamic_rows_id" unsigned="false" nullable="false" identity="true"
+                comment="Dynamic Rows id"/>
+        <column xsi:type="varchar" name="description" nullable="false" length="255" comment="Description"/>
+        <column xsi:type="timestamp" name="creation_time" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <column xsi:type="timestamp" name="update_time" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Modification Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="dynamic_rows_id"/>
+        </constraint>
+        <index referenceId="DESCRIPTION_IDENTIFIER_CONTENT" indexType="fulltext">
+            <column name="description"/>
+        </index>
+    </table>
+</schema>

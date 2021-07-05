@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+      <add id="Surbhitest_DynamicRows::dynamic_rows" title="Dynamic Rows Data" translate="title" module="Surbhitest_DynamicRows" parent="Magento_Customer::customer" sortOrder="50" dependsOnModule="Surbhitest_DynamicRows" resource="Surbhitest_DynamicRows::dynamic_rows"/>
+      <add id="Surbhitest_DynamicRows::dynamic_rows_data" title="Dynamic Rows" translate="title" module="Surbhitest_DynamicRows" parent="Surbhitest_DynamicRows::dynamic_rows" sortOrder="10" dependsOnModule="Surbhitest_DynamicRows" action="dynamicrows/dynamicrows/index/scope/stores" resource="Surbhitest_DynamicRows::dynamic_rows"/>
+    </menu>
+</config>
