@@ -22,6 +22,9 @@ class GenericButton
      */
     protected $registry;
 
+    protected $request;
+
+
     /**
      * Constructor
      *
@@ -30,10 +33,12 @@ class GenericButton
      */
     public function __construct(
         \Magento\Backend\Block\Widget\Context $context,
-        \Magento\Framework\Registry $registry
+        \Magento\Framework\Registry $registry,
+        \Magento\Framework\App\RequestInterface $request
     ) {
         $this->urlBuilder = $context->getUrlBuilder();
         $this->registry = $registry;
+        $this->request = $request;
     }
 
     /**
@@ -46,8 +51,8 @@ class GenericButton
         // $contact = $this->registry->registry('car_data');
         // print_r($this->registry->registry('car_data'));die;
         // return $contact ? $contact->getId() : null;
-        return $this->registry->registry('car_data');
-
+        return $this->request->getParam('id');
+       // return $this->registry->registry('car_data');
     }
 
     /**
