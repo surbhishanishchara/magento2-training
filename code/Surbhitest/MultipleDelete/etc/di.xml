@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config>
+	<type name="Magento\Checkout\Block\Cart\AbstractCart">
+		<plugin name="multiple-cart-delete" type="Surbhitest\MultipleDelete\Plugin\AbstractCart" sortOrder="1" />
+	</type>
+	<preference for="Magento\Checkout\Controller\Cart\UpdatePost" type="Surbhitest\MultipleDelete\Controller\Cart\UpdatePost" />
+</config>
