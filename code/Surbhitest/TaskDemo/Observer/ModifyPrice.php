@@ -10,7 +10,7 @@
         public function execute(\Magento\Framework\Event\Observer $observer) {
             $item = $observer->getEvent()->getData('quote_item');         
             $item = ( $item->getParentItem() ? $item->getParentItem() : $item );
-            $price = $item->getPrice() + 10; //set extra $100 on original price
+            $price = $item->getPrice() + 0; //set extra $100 on original price
             $item->setCustomPrice($price);
             $item->setOriginalCustomPrice($price);
             $item->getProduct()->setIsSuperMode(true);
