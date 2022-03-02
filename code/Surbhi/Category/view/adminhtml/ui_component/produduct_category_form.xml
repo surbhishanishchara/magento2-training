@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">produduct_category_form.produduct_category_form_data_source</item>
+            <item name="deps" xsi:type="string">produduct_category_form.produduct_category_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Car Information</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">produduct_category_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save" class="Surbhi\Category\Block\Adminhtml\ProductData\SaveButton"/>
+        </buttons>
+        <namespace>produduct_category_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>produduct_category_form.produduct_category_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="produduct_category_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+          <argument name="class" xsi:type="string">Surbhi\Category\Model\ProductData\DataProvider</argument>
+            <argument name="name" xsi:type="string">produduct_category_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">entity_id</argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+         <settings>
+          <submitUrl path="*/*/save"/>
+        </settings>
+    </dataSource>
+    <fieldset name="car_data">
+       <settings>
+            <collapsible>false</collapsible>
+            <label/>
+        </settings>
+         <field name="category_ids" sortOrder="40" formElement="select" component="Surbhi_Category/js/component/new-category">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">productslider</item>
+                    <item name="filterOptions" xsi:type="boolean">true</item>
+                    <item name="multiple" xsi:type="boolean">true</item>
+                    <item name="showCheckbox" xsi:type="boolean">true</item>
+                    <item name="disableLabel" xsi:type="boolean">true</item>
+                    <item name="levelsVisibility" xsi:type="number">1</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <visible>true</visible>
+                <label translate="true">Select categories</label>
+                <dataScope>category_ids</dataScope>
+                <elementTmpl>ui/grid/filters/elements/ui-select</elementTmpl>
+                <componentType>field</componentType>
+                <notice translate="true">Select categories if you want to products of specific categories.
+                    Leave blank if you want to products of all categories</notice>
+                <imports>
+                    <link name="sliderType">${ $.parentName }.slider_type:value</link>
+                </imports>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Magento\Catalog\Ui\Component\Product\Form\Categories\Options"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="car_name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Car Name</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">car_data</item>
+                    <item name="dataScope" xsi:type="string">car_name</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+      <!--   <field name="view_product" formElement="container" component="Surbhi_Category/js/form/element/view-product">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="componentType" xsi:type="string">container</item>
+                            <item name="fit" xsi:type="boolean">true</item>
+                            <item name="template" xsi:type="string">Surbhi_Category/form/element/view-product</item>
+                            <item name="prefixName" xsi:type="string">option.product</item>
+                            <item name="prefixElementName" xsi:type="string">option_</item>
+                        </item>
+                    </argument>
+                    <settings>
+                        <dataType>text</dataType>
+                        <label/>
+                        <elementTmpl>Surbhi_Category/form/element/view-product</elementTmpl>
+                    </settings>
+        </field> -->
+    </fieldset>
+</form>

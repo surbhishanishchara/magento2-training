@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Surbhi_Category::productdata" title="Add Product Data" module="Surbhi_Category" sortOrder="51" resource="Surbhi_Category::productdata"/>
+        <add id="Surbhi_Category::manage_productdata" title="Manage Product Data" module="Surbhi_Category" sortOrder="10" action="category/index/index" resource="Surbhi_Category::post" parent="Surbhi_Category::productdata"/>
+    </menu>
+</config>

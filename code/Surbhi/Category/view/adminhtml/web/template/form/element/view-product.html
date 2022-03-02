@@ -1,0 +1,11 @@
+<button class="action-view-product"
+        attr="{'data-action': 'remove_row'}"
+        data-bind="
+            click: function(){ processingViewProducts($record().index, $record.recordId, $record()); },
+            attr: {
+                title: viewProductButtonLabel
+            }
+        ">
+    <span translate="viewProductButtonLabel"></span>
+</button>
+<!-- <div attr="{'data-role': 'products_modal_'+$record().index,'id': 'products_modal_'+$record().index}"></div> -->
